@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE>Guess a Number</TITLE>
+		<META charset="UTF-8" />
+		<META name="author" content="Jacob Garcia" />
+		<META name="viewport" content="width=device-width, initial-scale=1.0" />
+		<META name="description" content="The computer will generate a number and 
+										  the human will try to guess it." />
+		<SCRIPT type="text/javascript">
+        // Declare Variables
+		var number; // the answer that needs to be guessed
+	    var numArray = []; // The array where previous answers are stored
+
+		function playagain() {
+        number = Math.floor(Math.random() * 10) + 1; // The random number that is generated
+		do  {
+			number = Math.floor(Math.random() * 10) + 1;
+            } // do()
+			while (number == numArray); // loop to prevent the answer from being repeated
+           // Got this idea from https://answers.unity.com/questions/605729/how-can-i-generate-random-number-except-one-in-jav.html
+			} //playagain()
+
+        function Check() {
+		var result = ""; // The output of each attempt
+	    var guess = document.getElementById("guess").value; // The number the user will put in
+
+        // Check the relationship of the guess and the random number
+        if (guess != number) {
+		     	// Check for low guess
+                if (guess < number && guess >= 1) {
+                resultText = "Your Guess is too low!";
+                }// if()
+
+                // Check for high guess
+			    else if (guess > number && guess <= 10) {
+                resultText = "Your Guess is too High!";
+                }// else if()
+
+			    // Check if the number is beyond the limit
+                else if (guess < 1 || guess > 10) {
+				resultText = "You Have to pick a number from 1 to 10.";
+                } //else if()
+
+                // Check to see if the input is not a number
+				else {
+				resultText = "That is not a Number. Please try again."
+				} // else()
+                } // if()
+
+         // Check for correct number
+	     if (guess == number) {
+	     resultText = "You Guessed the Number!";
+	     numArray.push(number);
+		 } // if()
+
+         document.getElementById("result").innerHTML = resultText;
+
+			     } // Check()
+	    </SCRIPT>
+	</HEAD>
+	<BODY onload= "playagain();">
+		<DIV id="topbar">
+			The computer is going to generate a random number
+			from 1-10 for you to guess. Enter your number down
+			below and click the guess button until you guess 
+			the correct answer. If you want to play again,
+			 click the play again button.
+		</DIV>
+		<INPUT type="text" id="guess" placeholder="Guess" />
+		<BUTTON onClick= "Check()" >guess</BUTTON>
+		<TYPE id= "result" ></TYPE>
+		<DIV>
+		<BUTTON onClick= "playagain()" >Play Again</BUTTON>
+		</DIV>
+	</BODY>
+</HTML>
