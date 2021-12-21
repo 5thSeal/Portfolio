@@ -1,0 +1,502 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>BattleShip</TITLE>
+<META charset="UTF-8" />
+<META name="author" content="Jacob Garcia" />
+<META name="viewport" content="width=device-width, initial-scale=1.0" />
+<META name="description" content="This program will play battleship with a computer and a user." />
+<SCRIPT type="text/javascript">
+
+const ARRAYSIZE = 1;
+// Parameter size: how many rows and columns will exist in the array
+// Create the Array
+
+OutArray = [];
+OutArray2 = [];
+
+
+PDestroyer1 = 1;
+PDestroyer2 = 2;
+PCruiser1 = 14;
+PCruiser2 = 28;
+PCruiser3 = 42;
+PSubmarine1 = 101;
+PSubmarine2 = 102;
+PSubmarine3 = 103;
+PBattleship1 = 109;
+PBattleship2 = 123;
+PBattleship3 = 137;
+PBattleship4 = 151;
+PAircraftCarrier1 = 186;
+PAircraftCarrier2 = 187;
+PAircraftCarrier3 = 188;
+PAircraftCarrier4 = 189;
+PAircraftCarrier5 = 190;
+
+/*
+PDestroyer1 = document.getElementById("ship1");
+PDestroyer2 = document.getElementById("ship2");
+PCruiser1 = document.getElementById("ship3");
+PCruiser2 = document.getElementById("ship4");
+PCruiser3 = document.getElementById("ship5");
+PSubmarine1 = document.getElementById("ship6");
+PSubmarine2 = document.getElementById("ship7");
+PSubmarine3 = document.getElementById("ship8");
+PBattleship1 = document.getElementById("ship9");
+PBattleship2 = document.getElementById("ship10");
+PBattleship3 = document.getElementById("ship11");
+PBattleship4 = document.getElementById("ship12");
+PAircraftCarrier1 = document.getElementById("ship13");
+PAircraftCarrier2 = document.getElementById("ship14");
+PAircraftCarrier3 = document.getElementById("ship15");
+PAircraftCarrier4 = document.getElementById("ship16");
+PAircraftCarrier5 = document.getElementById("ship17");
+*/
+
+CDestroyer1 = "197";
+CDestroyer2 = "198";
+CCruiser1 = "210";
+CCruiser2 = "224";
+CCruiser3 = "238";
+CSubmarine1 = "259";
+CSubmarine2 = "273";
+CSubmarine3 = "287";
+CBattleship1 = "340";
+CBattleship2 = "341";
+CBattleship3 = "342";
+CBattleship4 = "343";
+CAircraftCarrier1= "382";
+CAircraftCarrier2= "383";
+CAircraftCarrier3= "384";
+CAircraftCarrier4= "385";
+CAircraftCarrier5= "386";
+
+function getShips1() {
+PDestroyer1 = 1;
+PDestroyer2 = 2;
+PCruiser1 = 14;
+PCruiser2 = 28;
+PCruiser3 = 42;
+PSubmarine1 = 101;
+PSubmarine2 = 102;
+PSubmarine3 = 103;
+PBattleship1 = 109;
+PBattleship2 = 123;
+PBattleship3 = 137;
+PBattleship4 = 151;
+PAircraftCarrier1 = 186;
+PAircraftCarrier2 = 187;
+PAircraftCarrier3 = 188;
+PAircraftCarrier4 = 189;
+PAircraftCarrier5 = 190;
+
+main();
+}
+
+function getShips2() {
+PDestroyer1 = 31;
+PDestroyer2 = 32;
+PCruiser1 = 49;
+PCruiser2 = 63;
+PCruiser3 = 77;
+PSubmarine1 = 160;
+PSubmarine2 = 161;
+PSubmarine3 = 162;
+PBattleship1 = 140;
+PBattleship2 = 154;
+PBattleship3 = 168;
+PBattleship4 = 182;
+PAircraftCarrier1 = 186;
+PAircraftCarrier2 = 187;
+PAircraftCarrier3 = 188;
+PAircraftCarrier4 = 189;
+PAircraftCarrier5 = 190;
+
+main();
+}
+
+function getShips3() {
+PDestroyer1 = 195;
+PDestroyer2 = 196;
+PCruiser1 = 141;
+PCruiser2 = 142;
+PCruiser3 = 143;
+PSubmarine1 = 11;
+PSubmarine2 = 12;
+PSubmarine3 = 13;
+PBattleship1 = 6;
+PBattleship2 = 20;
+PBattleship3 = 34;
+PBattleship4 = 48;
+PAircraftCarrier1 = 186;
+PAircraftCarrier2 = 187;
+PAircraftCarrier3 = 188;
+PAircraftCarrier4 = 189;
+PAircraftCarrier5 = 190;
+
+main();
+}
+
+
+function createArray(size) {
+    myArray = [0, 1, 2, 3];
+	for (let rowCounter=0;rowCounter<size;rowCounter++) {
+		let row = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+		let row2 = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28];
+		let row3 = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42];
+		let row4 = [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56];
+		let row5 = [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70];
+		let row6 = [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84];
+		let row7 = [85, 86, 87, 88, 89, 90, 91, 92,  93, 94, 95, 96, 97, 98];
+        let row8 = [99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112];
+		let row9 = [113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126];
+		let row10 = [127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140];
+		let row11 = [141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154];
+		let row12 = [155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168];
+		let row13 = [169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182];
+		let row14 = [183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196];
+		for (let columnCounter=0;columnCounter<size;columnCounter++) {
+			rowCounter == 0
+			columnCounter == 1
+
+
+		} // for()
+        myArray.push(row);
+		myArray.push(row2);
+		myArray.push(row3);
+		myArray.push(row4);
+		myArray.push(row5);
+		myArray.push(row6);
+		myArray.push(row7);
+		myArray.push(row8);
+		myArray.push(row9);
+		myArray.push(row10);
+		myArray.push(row11);
+		myArray.push(row12);
+		myArray.push(row13);
+		myArray.push(row14);
+	} // for()
+} // createArray(size)
+
+// Display the array on the screen
+function displayArray() {
+    var outputString = "<TABLE border=\"5\">";
+	for (let rowCounter=0;rowCounter<myArray.length;rowCounter++) {
+		outputString += "<TR>";
+		for (let columnCounter=0;columnCounter<myArray[rowCounter].length;columnCounter++) {
+	    	 let bgStyle = "style=\"color:black; background:";
+			 if (OutArray2.indexOf(myArray [rowCounter][columnCounter].toString())!= -1) bgStyle += "red;\"";
+			 else if (OutArray2.indexOf(myArray [rowCounter][columnCounter])!= -1) bgStyle += "red;\"";
+			 else if (myArray [rowCounter][columnCounter]== PDestroyer1) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PDestroyer2) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PCruiser1) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PCruiser2) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PCruiser3) bgStyle += "black;\"";
+		   	 else if (myArray [rowCounter][columnCounter]== PSubmarine1) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PSubmarine2) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PSubmarine3) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PBattleship1) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PBattleship2) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PBattleship3) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PBattleship4) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PAircraftCarrier1) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PAircraftCarrier2) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PAircraftCarrier3) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PAircraftCarrier4) bgStyle += "black;\"";
+			 else if (myArray [rowCounter][columnCounter]== PAircraftCarrier5) bgStyle += "black;\"";
+			 else bgStyle += "blue;\"";
+
+			outputString +="<TD width=\"20\" height=\"20\" "+bgStyle+">"+myArray[rowCounter] [columnCounter] +"</TD>";
+	     }
+		outputString += "</TR>";
+		}
+		outputString += "</TABLE>";
+		document.getElementById("output").innerHTML = outputString;
+} // displayArray()
+
+
+const ARRAYSIZE2 = 1;
+// Parameter size: how many rows and columns will exist in the array
+
+// Create the Array
+function createArray2(size) {
+    myArray2 = [0, 1, 2, 3];
+	for (let rowCounter=0;rowCounter<size;rowCounter++) {
+		let row15= [197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210];
+		let row16= [211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224];
+		let row17= [225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238];
+		let row18= [239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252];
+		let row19= [253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266];
+		let row20= [267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280];
+		let row21= [281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294];
+		let row22= [295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305 ,306, 307, 308];
+		let row23= [309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322];
+		let row24= [323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336];
+		let row25= [337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350];
+		let row26= [351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364];
+		let row27= [365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378];
+		let row28= [379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392];
+
+		for (let columnCounter=0;columnCounter<size;columnCounter++) {
+			rowCounter == 0
+			columnCounter == 1
+
+
+		} // for()
+        myArray2.push(row15);
+		myArray2.push(row16);
+		myArray2.push(row17);
+		myArray2.push(row18);
+		myArray2.push(row19);
+		myArray2.push(row20);
+		myArray2.push(row21);
+		myArray2.push(row22);
+		myArray2.push(row23);
+		myArray2.push(row24);
+		myArray2.push(row25);
+		myArray2.push(row26);
+		myArray2.push(row27);
+		myArray2.push(row28);
+	} // for()
+} // createArray(size)
+
+// Display the array on the screen
+function displayArray2() {
+    var outputString = "<TABLE border=\"5\">";
+	for (let rowCounter=0;rowCounter<myArray2.length;rowCounter++) {
+		outputString += "<TR>";
+		for (let columnCounter=0;columnCounter<myArray2[rowCounter].length;columnCounter++) {
+	    	 let bgStyle = "style=\"color:black; background:";
+			  if (OutArray.indexOf(myArray2 [rowCounter][columnCounter].toString())!= -1) bgStyle += "red;\"";
+			 else bgStyle += "blue;\"";
+
+			outputString +="<TD width=\"20\" height=\"20\" "+bgStyle+">"+myArray2[rowCounter] [columnCounter] +"</TD>";
+	     }
+		outputString += "</TR>";
+		}
+		outputString += "</TABLE>";
+		document.getElementById("output2").innerHTML = outputString;
+} // displayArray()
+
+function main() {
+	createArray(ARRAYSIZE);
+	displayArray();
+	createArray2(ARRAYSIZE2);
+	displayArray2();
+}
+
+function GameOver() {
+
+}
+function cTurn() {
+    var turn = Math.floor(Math.random() * 197);
+	while (OutArray2.indexOf(turn) >= 0) {
+		turn = Math.floor(Math.random() * 197)
+	}
+	if (turn == PDestroyer1) {
+	responseText2 = "Your ship got hit!"
+	}
+     else if (turn == PDestroyer2) {
+     responseText2 = "Your Ship got hit!";
+     }
+	 else if (turn == PCruiser1) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PCruiser2) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PCruiser3) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PSubmarine1) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PSubmarine2) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PSubmarine3) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PBattleship1) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PBattleship2) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PBattleship3) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PBattleship4) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PAircraftCarrier1) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PAircraftCarrier2) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PAircraftCarrier3) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PAircraftCarrier4) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else if (turn == PAircraftCarrier5) {
+	 responseText2 = "Your Ship got hit!";
+     }
+     else  {
+     responseText2 = "The computer has Missed";
+    }
+    OutArray2.unshift(turn);
+	if (OutArray2.indexOf(PDestroyer1) >= 0 && OutArray2.indexOf(PDestroyer2) >= 0) {
+        responseText5 = "The Computer has sunk your Destroyer!";
+		document.getElementById("response5").innerHTML = responseText5;
+		}
+	if (OutArray2.indexOf(PCruiser1) >= 0 && OutArray2.indexOf(PCruiser2) >= 0 && OutArray2.indexOf(PCruiser3) >= 0) {
+        responseText6 = "The Computer has sunk your Cruiser!";
+		document.getElementById("response6").innerHTML = responseText6;
+		}
+	if (OutArray2.indexOf(PSubmarine1) >= 0 && OutArray2.indexOf(PSubmarine2) >= 0 && OutArray2.indexOf(PSubmarine3) >= 0) {
+        responseText7 = "The computer has sunk your Submarine!";
+		document.getElementById("response7").innerHTML = responseText7;
+		}
+	if (OutArray2.indexOf(PBattleship1) >= 0 && OutArray2.indexOf(PBattleship2) >= 0 && OutArray2.indexOf(PBattleship3) >= 0 && OutArray2.indexOf(PBattleship4) >= 0) {
+        responseText8 = "The Computer has sunk your Battleship!";
+		document.getElementById("response8").innerHTML = responseText8;
+		}
+	if (OutArray2.indexOf(PAircraftCarrier1) >= 0 && OutArray2.indexOf(PAircraftCarrier2) >= 0 && OutArray2.indexOf(PAircraftCarrier3) >= 0 && OutArray2.indexOf(PAircraftCarrier4) >= 0 && OutArray2.indexOf(PAircraftCarrier5) >= 0) {
+        responseText9 = "The computer has sunk your Aircraft Carrier!";
+		document.getElementById("response9").innerHTML = responseText9;
+		}
+	if (OutArray2.indexOf(PDestroyer1) >= 0 && OutArray2.indexOf(PDestroyer2) >= 0 && OutArray2.indexOf(PCruiser1) >= 0 && OutArray2.indexOf(PCruiser2) >= 0 && OutArray2.indexOf(PCruiser3) >= 0
+		&& OutArray2.indexOf(PSubmarine1) >= 0 && OutArray2.indexOf(PSubmarine2) >= 0 && OutArray2.indexOf(PSubmarine3) >= 0 && OutArray2.indexOf(PBattleship1) >= 0 && OutArray2.indexOf(PBattleship2) >= 0 &&
+		OutArray2.indexOf(PBattleship3) >= 0 && OutArray2.indexOf(PBattleship4) >= 0 && OutArray2.indexOf(PAircraftCarrier1) >= 0 && OutArray2.indexOf(PAircraftCarrier2) >= 0 && OutArray2.indexOf(PAircraftCarrier3) >= 0 && OutArray2.indexOf(PAircraftCarrier4) >= 0 && OutArray2.indexOf(PAircraftCarrier5) >= 0) {
+
+
+	 responseText3 = "The Computer has won, Game Over!";
+	 document.getElementById("response3").innerHTML = responseText3;
+	 }
+	document.getElementById("response2").innerHTML = responseText2;
+}
+
+function pTurn() {
+	var turn = document.getElementById("guess").value;
+	 if (turn == CDestroyer1) {
+		 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CDestroyer2) {
+		 responseText = "You Hit a Ship!";
+	 }
+     else if (turn == (CDestroyer1 && CDestroyer2)) {
+	 responseText = "The Destroyer is Down!";
+     }
+	 else if (turn == CCruiser1) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CCruiser2) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CCruiser3) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CSubmarine1) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CSubmarine2) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CSubmarine3) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CBattleship1) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CBattleship2) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CBattleship3) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CBattleship4) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CAircraftCarrier1) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CAircraftCarrier2) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CAircraftCarrier3) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CAircraftCarrier4) {
+	 responseText = "You Hit a Ship!";
+     }
+     else if (turn == CAircraftCarrier5) {
+	 responseText = "You Hit a Ship!";
+     }
+	 else {
+		 responseText = "You Missed";
+     }
+
+     OutArray.unshift(turn);
+	 if (OutArray.indexOf("197") >= 0 && OutArray.indexOf("198") >= 0) {
+        responseText4 = "You have sunk the Destroyer!";
+		document.getElementById("response4").innerHTML = responseText4;
+		}
+	if (OutArray.indexOf("210") >= 0 && OutArray.indexOf("224") >= 0 && OutArray.indexOf("238") >= 0) {
+        responseText10 = "You have sunk the Cruiser!";
+		document.getElementById("response10").innerHTML = responseText10;
+		}
+	if (OutArray.indexOf("259") >= 0 && OutArray.indexOf("273") >= 0 && OutArray.indexOf("287") >= 0) {
+        responseText11 = "You have sunk the Submarine!";
+		document.getElementById("response11").innerHTML = responseText11;
+		}
+	if (OutArray.indexOf("340") >= 0 && OutArray.indexOf("341") >= 0 && OutArray.indexOf("342") >= 0 && OutArray.indexOf("343") >= 0) {
+        responseText12 = "You have sunk the Battleship!";
+		document.getElementById("response12").innerHTML = responseText12;
+		}
+	 if (OutArray.indexOf("382") >= 0 && OutArray.indexOf("383") >= 0 && OutArray.indexOf("384") >= 0 && OutArray.indexOf("385") >= 0 && OutArray.indexOf("386") >= 0) {
+        responseText13 = "You have sunk the Aircraft Carrier!";
+		document.getElementById("response13").innerHTML = responseText13;
+		}
+	if (OutArray.indexOf("197") >= 0 && OutArray.indexOf("198") >= 0 && OutArray.indexOf("210") >= 0 && OutArray.indexOf("224") >= 0 && OutArray.indexOf("238") >= 0
+		&& OutArray.indexOf("259") >= 0 && OutArray.indexOf("273") >= 0 && OutArray.indexOf("287") >= 0 && OutArray.indexOf("340") >= 0 && OutArray.indexOf("341") >= 0 &&
+		OutArray.indexOf("342") >= 0 && OutArray.indexOf("343") >= 0 && OutArray.indexOf("382") >= 0 && OutArray.indexOf("383") >= 0 && OutArray.indexOf("384") >= 0 && OutArray.indexOf("385") >= 0 && OutArray.indexOf("386") >= 0) {
+
+
+	 responseText3 = "Congratulations, You have Won the Game!";
+	 document.getElementById("response3").innerHTML = responseText3;
+	 }
+	 document.getElementById("response").innerHTML = responseText;
+
+	 cTurn();
+     } // start()
+</SCRIPT>
+</HEAD>
+<BODY onLoad="">
+<DIV id="response3"></DIV>
+<INPUT type="number" id="guess"></INPUT>
+<BUTTON onClick="pTurn(); main();">Turn</BUTTON>
+<BUTTON onClick="getShips1();">1</BUTTON>
+<BUTTON onClick="getShips2();">2</BUTTON>
+<BUTTON onClick="getShips3();">3</BUTTON>
+<DIV id="response"></DIV>
+<DIV id="response4"></DIV>
+<DIV id="response10"></DIV>
+<DIV id="response11"></DIV>
+<DIV id="response12"></DIV>
+<DIV id="response13"></DIV>
+<DIV >Your Board</DIV>
+<DIV id="output"></DIV>
+<DIV id="response2"></DIV>
+<DIV id="response5"></DIV>
+<DIV id="response6"></DIV>
+<DIV id="response7"></DIV>
+<DIV id="response8"></DIV>
+<DIV id="response9"></DIV>
+<DIV >Opponent's Board</DIV>
+<DIV id="output2"></DIV>
+</BODY>
+</HTML>
